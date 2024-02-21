@@ -101,7 +101,7 @@ fun main() {
     listOfNumbers.add(740)
     listOfNumbers.add(741)
     val sort = Sort()
-    val sortedNumbersRadix = sort.radixSort(listOfNumbers)
+    val sortedNumbersRadix = sort.insertionSort(listOfNumbers)
     println(sortedNumbersRadix)
     //val nums = sort.insertionSort(listOfNumbers)
     //println(nums)
