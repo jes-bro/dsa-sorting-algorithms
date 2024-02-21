@@ -1,7 +1,20 @@
-
+/**
+ * A class that houses a variety of sorting algorithms.
+ * Includes radixSort, selectionSort, quickSort, and insertionSort.
+ * They support mutableList<Int>s as inputs and have varying outputs.
+ */
 class Sort() {
 
+    /**
+     * Convert a list of integers to a list of lists of integers.
+     */
     private fun Int.toDigits(): List<Int> = toString().map { it.toString().toInt() } // from stack overflow
+
+    /**
+     * Sort a mutable list of integers via radix sort.
+     * @param numList a mutable list of integers.
+     * @return a mutable list of mutable lists of integers that represent a sorted version of the original mutable list.
+     */
     fun radixSort(numList: MutableList<Int>):MutableList<MutableList<Int>> {
         var mainList: MutableList<MutableList<Int>> = mutableListOf()
         var baseTenList: MutableList<MutableList<MutableList<Int>>> = mutableListOf(mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf(), mutableListOf())
@@ -26,6 +39,10 @@ class Sort() {
         return mainList
     }
 
+    /**
+     * Sort a mutable list of integers in place via the selection sort algorithm.
+     * @param numList a mutable list of integers.
+     */
     fun selectionSort(numList: MutableList<Int>) {
         var unsortedLowerBound = 0
         while (unsortedLowerBound < numList.size - 1) {
@@ -42,6 +59,11 @@ class Sort() {
         }
     }
 
+    /**
+     * Sort a mutable list of integers using the quicksort algorithm.
+     * @param numList a mutable list of integers.
+     * @return a mutable list of integers that represents a sorted version of the original mutable list.
+     */
     fun quickSort(numList: MutableList<Int>):MutableList<Int> {
         if (numList.size <= 1) {
             return numList
@@ -73,6 +95,11 @@ class Sort() {
         return finalList
     }
 
+    /**
+     * Sort a mutable list of integers via insertion sort.
+     * @param numList a mutable list of integers
+     * @return a mutable list of mutable lists of integers that represent a sorted version of the original mutable list.
+     */
     fun insertionSort (numList: MutableList<Int>):MutableList<Int> {
 
         for (index in 0..numList.size - 1) {
@@ -87,22 +114,4 @@ class Sort() {
         return numList
     }
 
-}
-//what if partition is not at the end
-//recursive version, how to do not recursive version / how to swap, how to implement min heap and then I'll do heap sort after that
-
-fun main() {
-    val listOfNumbers = mutableListOf<Int>()
-    listOfNumbers.add(409)
-    listOfNumbers.add(829)
-    listOfNumbers.add(371)
-    listOfNumbers.add(501)
-    listOfNumbers.add(700)
-    listOfNumbers.add(740)
-    listOfNumbers.add(741)
-    val sort = Sort()
-    val sortedNumbersRadix = sort.insertionSort(listOfNumbers)
-    println(sortedNumbersRadix)
-    //val nums = sort.insertionSort(listOfNumbers)
-    //println(nums)
 }
